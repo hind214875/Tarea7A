@@ -148,10 +148,10 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return  nombre + ";" + 
-                dni + ";" + puesto + ";" + 
-                fechaTomaPos + ";" + fechaCese + ";" + 
-                telfono + ";" + evaluador + ";" + coordinador;
+        return  nombre + " " + 
+                dni + " " + puesto + " " + 
+                fechaTomaPos + " " + fechaCese + " " + 
+                telfono + " " + evaluador + " " + coordinador;
     }
 
    

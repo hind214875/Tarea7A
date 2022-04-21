@@ -118,6 +118,8 @@ public class LecturaFichero {
         ArrayList<Empleado> listaAux = generarTrabajadorplus100(lista);
 
         try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idFichero))) {
+            flujo.write("Nombre\tDNI/Pasaporte\tPuesto\tFecha de Toma\tFecha de Cese\tTeléfono\tEvaluador\tCoodinador\tDiasTrabajo");
+            flujo.newLine();
             //recorrer la lista de empleados generada y escribir en el fichero
             for (Empleado obj : listaAux) {
                 //añadir el numero de dias trabajan
