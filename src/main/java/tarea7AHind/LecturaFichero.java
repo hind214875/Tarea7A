@@ -11,12 +11,20 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import static tarea7AHind.Utils.empleadosFechaCoicidencia;
+import static tarea7AHind.Utils.encuentraElempleado;
+import static tarea7AHind.Utils.listaEmpleadoConNifDado;
+import static tarea7AHind.Utils.numeroEmpleadosPorDep;
+ 
+
+
 
 
 /**
@@ -171,6 +179,19 @@ public class LecturaFichero {
         /*Guarda en otro fichero CSV los registros de aquellos empleados que hayan trabajado más de 100 días en el curso 20/21. */
         
         escrituraEnFicheroTrabajadoresMas100(empleados);
+        
+        //el premir metodo
+        System.out.println(encuentraElempleado(empleados,"Arroyo Pretel Jean Paul"));
+        
+        //secand metodo
+        System.out.println(numeroEmpleadosPorDep(empleados,"Matemáticas P.E.S."));
+        
+        //tercer metodo
+        System.out.println(listaEmpleadoConNifDado(empleados,'V'));
+        
+        //
+        LocalDate fecha=LocalDate.of(2020, Month.SEPTEMBER, 16);
+        System.out.println(empleadosFechaCoicidencia(empleados,fecha));
 
     }
 }
