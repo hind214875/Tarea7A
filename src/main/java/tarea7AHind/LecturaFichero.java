@@ -170,7 +170,9 @@ public class LecturaFichero {
         //total profesores existen en el fichero
         System.out.println("el total de profesores existen es: " + empleados.size());
         //muestra la lista de empleados
-        empleados.forEach(System.out::println);
+        //empleados.forEach(System.out::println);
+        System.out.println("**************mostrar la lista*********");
+        empleados.forEach(p->System.out.println(p));
 
         /*Genera un map para almacenar cuantos profesores hay por cada departamento diferente. 
         Vuelca esta información en otro fichero CSV, llamado "profesoresPorDepartamento.csv", separando los campos con un tabulador.*/
