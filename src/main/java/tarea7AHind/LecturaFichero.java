@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Stream;
 import static tarea7AHind.Utils.empleadosFechaCoicidencia;
 import static tarea7AHind.Utils.encuentraElempleado;
 import static tarea7AHind.Utils.listaEmpleadoConNifDado;
@@ -162,6 +163,7 @@ public class LecturaFichero {
         }
 
     }
+    
 
     public static void main(String[] args) {
         //lesta empleados a partir del fichero
@@ -194,6 +196,17 @@ public class LecturaFichero {
         //
         LocalDate fecha=LocalDate.of(2020, Month.SEPTEMBER, 16);
         System.out.println(empleadosFechaCoicidencia(empleados,fecha));
+        
+        //sorted the arrayList using stream
+        System.out.println("sorted the list usinf stream");
+        Stream.of(empleados).sorted()
+                .forEach(System.out::println);
+         
+        //sorted and mapear the arrayList
+        /*System.out.println("test ");
+        empleados.stream()
+                .map(() -> Empleado::toLowerCase)
+                .forEach(System.out::println);*/
 
     }
 }
