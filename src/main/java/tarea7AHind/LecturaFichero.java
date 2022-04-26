@@ -55,7 +55,8 @@ public class LecturaFichero {
                 // Se guarda en el array de String cada elemento de la linea 
                 //separando con coma
                 tokens = linea.split(",");
-
+                //imprimo lineas
+               // System.out.println(linea+"\t");
                 //crear objeto empleado
                 Empleado emp = new Empleado();
 
@@ -193,8 +194,9 @@ public class LecturaFichero {
         //tercer metodo
         System.out.println(listaEmpleadoConNifDado(empleados,'V'));
         
-        //
+        //la ultima metodo
         LocalDate fecha=LocalDate.of(2020, Month.SEPTEMBER, 16);
+        System.out.println("metodo empleado fechacoincidencia");
         System.out.println(empleadosFechaCoicidencia(empleados,fecha));
         
         //sorted the arrayList using stream

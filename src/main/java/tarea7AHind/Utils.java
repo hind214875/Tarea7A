@@ -21,7 +21,7 @@ public class Utils {
     public static boolean encuentraElempleado(ArrayList<Empleado> lista, String nombre) {
         boolean resulta = false;
         for (Empleado obj : lista) {
-            if (obj.getNombre().equals(nombre)) {
+            if (obj.getNombre().equalsIgnoreCase(nombre)) {
                 resulta = true;
             }
         }
