@@ -15,9 +15,13 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static tarea7AHind.Utils.empleadosFechaCoicidencia;
 import static tarea7AHind.Utils.encuentraElempleado;
@@ -204,11 +208,43 @@ public class LecturaFichero {
         Stream.of(empleados).sorted()
                 .forEach(System.out::println);
          
-        //sorted and mapear the arrayList
-        /*System.out.println("test ");
-        empleados.stream()
-                .map(() -> Empleado::toLowerCase)
-                .forEach(System.out::println);*/
+        //**************Con API stream***************************/
+        //A partir de una lista de empleados y un nombre, indique si hay algún empleado con ese nombre.*/
+        System.out.println("********* Stream******************");
+        String nombre="Ãlvarez Bermudo Mario";
+        boolean existe=empleados.stream()
+                                 .anyMatch(e->e.getNombre().equalsIgnoreCase(nombre));
+        System.out.println("este empleado existe? "+existe);
+                
 
+        // /*A partir de una lista de empleados y un nombre de departamento, 
+       // indique el número de empleados Coordinadores de ese departamento.*/
+       String dep="mantecas P.E.S.";
+       long cantidad=empleados.stream()
+                              .filter(e->e.getPuesto().equalsIgnoreCase(dep))
+                              .count();
+        System.out.println("la cantidad: "+cantidad);
+        
+         /*A partir de una lista de empleados y una letra del NIF (char), 
+       obtener una nueva lista ordenada alfabéticamente SOLO con los apellidos de 
+       los empleados cuyo NIF contenga esa letra.*/
+        char letra='H';
+       empleados.stream()
+                 .filter(e->e.getDni().indexOf(letra)!=-1)
+                 .forEach(System.out::println);
+       
+         /*A partir de una lista de empleados y una fecha,
+         obtener una nueva lista con los NIF (ordenados de forma inversa) 
+         de todos los empleados cuya toma de posesión coincida con esa fecha.*/
+         LocalDate l=LocalDate.of(2020, Month.SEPTEMBER, 16);
+         List<String> nifs=empleados.stream()
+                                    .filter(e->e.getFechaTomaPos().isEqual(l))
+                                    .map(e->e.getDni())
+                                    .sorted(Collections.reverseOrder())
+                                    .collect(Collectors.toList());
+                                    
+         System.out.println("list Nifs con ficha toma posesion coincide con:"+l);
+         System.out.println(nifs);
+                                           
     }
 }
